@@ -1,0 +1,108 @@
+<%- include('partials/header', { title: 'Home - Boundless Moments' }) %>
+
+  <!-- Main Content Section -->
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center bg-no-repeat h-screen relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+      <div class="relative z-10 flex flex-col justify-center items-center h-full text-center text-white px-6 md:px-16">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-down">
+          Capture Your<br><span class="text-yellow-400">Bondless Moments</span>
+        </h1>
+        <p class="text-xl md:text-2xl max-w-3xl mb-8 animate-fade-in-up delay-100">
+          Professional photography that transforms moments into everlasting memories
+        </p>
+        <div class="flex flex-col md:flex-row gap-6 animate-fade-in-up delay-200">
+          <a href="/portfolio" class="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-lg font-bold text-lg transform transition-all duration-300 hover:scale-105 shadow-lg">
+            Explore Our Work →
+          </a>
+          <a href="/contact" class="border-2 border-white hover:bg-white hover:text-black px-8 py-4 rounded-lg font-bold text-lg transform transition-all duration-300 hover:scale-105">
+            Book a Session
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Galleries Section -->
+    <section class="py-20 bg-gray-100">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16">Featured Galleries</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="relative group overflow-hidden rounded-2xl shadow-xl">
+            <img src="https://images.unsplash.com/photo-1526666923127-b2970f64b422?q=80&w=3572&auto=format&fit=crop&ixlib=rb-4.0.3" 
+                 class="w-full h-96 object-cover transform group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+              <h3 class="text-3xl text-white font-bold">Weddings</h3>
+            </div>
+          </div>
+          <!-- Repeat similar blocks for other galleries -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-black text-white">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div class="text-center p-8 hover:bg-gray-900 rounded-xl transition duration-300">
+            <div class="text-yellow-400 text-5xl mb-6">🎞️</div>
+            <h3 class="text-2xl font-bold mb-4">Film & Digital</h3>
+            <p class="text-gray-400">Hybrid shooting approach combining classic film warmth with digital precision</p>
+          </div>
+          <!-- Add more features -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gradient-to-r from-gray-900 to-black">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 text-white">Client Stories</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white p-8 rounded-2xl shadow-lg">
+            <blockquote class="text-2xl italic mb-6">"Absolutely transformed our wedding memories into art!"</blockquote>
+            <div class="flex items-center">
+              <img src="https://i.pravatar.cc/60" class="rounded-full mr-4">
+              <div>
+                <p class="font-bold">Sarah & James</p>
+                <p class="text-gray-600">Wedding Clients</p>
+              </div>
+            </div>
+          </div>
+          <!-- Add more testimonials -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Preview Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center mb-12">
+          <h2 class="text-4xl font-bold">Latest Stories</h2>
+          <a href="/blog" class="text-yellow-500 hover:text-yellow-600 font-bold">View All →</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <article class="group">
+            <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3" 
+                 class="w-full h-64 object-cover rounded-xl mb-4 transform group-hover:scale-105 transition duration-300">
+            <h3 class="text-2xl font-bold mb-2 group-hover:text-yellow-500 transition">10 Tips for Perfect Portraits</h3>
+            <p class="text-gray-600">Master the art of portrait photography with our expert guide</p>
+          </article>
+          <!-- Add more blog posts -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative bg-gray-900 text-white py-28 overflow-hidden">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-5xl font-bold mb-8">Ready to Create Magic?</h2>
+        <p class="text-xl mb-12 max-w-2xl mx-auto">Let's discuss your vision and create something extraordinary together</p>
+        <a href="/contact" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black px-12 py-5 rounded-full text-xl font-bold transform transition-all duration-300 hover:scale-105 shadow-lg">
+          Start Your Journey
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>

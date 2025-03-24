@@ -1,0 +1,46 @@
+<%- include('partials/header', { title: 'Gallery - Bondless Moments' }) %>
+
+    <!-- Main Content Section: Gallery with Search and Sorting -->
+    <main class="bg-black bg-opacity-50 py-20"> <!-- Further increased top padding -->
+        <div class="max-w-7xl mx-auto px-6 text-center text-white">
+            <h1 class="text-4xl font-bold mb-16"> <!-- Further increased bottom margin -->
+                Gallery
+            </h1>
+
+            <!-- Search and Sort Options -->
+            <div class="mb-10"> <!-- Further increased bottom margin -->
+                <form action="/gallery" method="GET" class="space-x-4">
+                    <input type="text" name="search" value="<%= searchQuery %>" placeholder="Search images..."
+                        class="px-4 py-2 rounded-md bg-white text-black" />
+
+                    <select name="sort" class="px-4 py-2 rounded-md bg-white text-black">
+                        <option value="caption" <%=sortQuery==='caption' ? 'selected' : '' %>>Sort by Caption</option>
+                        <option value="date" <%=sortQuery==='date' ? 'selected' : '' %>>Sort by Date</option>
+                    </select>
+
+                    <button type="submit"
+                        class="bg-yellow-500 px-4 py-2 rounded-md hover:bg-yellow-600 transition">Apply</button>
+                </form>
+            </div>
+
+            <!-- Gallery Images Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <% galleryImages.forEach(function(item) { %>
+                    <div
+                        class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105 duration-300">
+                        <img src="<%= item.imagepath %>" alt="<%= item.caption %>"
+                            class="w-full h-48 object-cover rounded-t-lg mb-4 transition-opacity duration-500 hover:opacity-80">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                            <%= item.caption %>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            <%= item.description %>
+                        </p>
+                        <a href="#" class="text-yellow-500 hover:text-yellow-600 transition duration-300">View More</a>
+                    </div>
+                    <% }); %>
+            </div>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>

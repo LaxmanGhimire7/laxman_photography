@@ -1,0 +1,27 @@
+<%- include('partials/header', { title: 'Login - Timeless Memories' }) %>
+
+  <!-- Main Content -->
+  <main class="flex justify-center items-center min-h-screen bg-black bg-opacity-50">
+    <div class="p-8 rounded-lg shadow-lg bg-white w-full max-w-md">
+      <h2 class="text-3xl text-center mb-6">Admin Login</h2>
+      <form action="/admin/login" method="POST" class="space-y-4">
+        <div class="flex flex-col">
+          <label for="username" class="mb-2">Username:</label>
+          <input type="text" id="username" name="username" required class="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        </div>
+        <div class="flex flex-col">
+          <label for="password" class="mb-2">Password:</label>
+          <input type="password" id="password" name="password" required class="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        </div>
+        <div class="flex justify-center">
+          <button type="submit" class="bg-yellow-500 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-600 transition duration-200 w-full">Login</button>
+        </div>
+
+        <% if (error) { %>
+          <div class="text-red-500 text-center mt-4"><%= error %></div>
+        <% } %>
+      </form>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>

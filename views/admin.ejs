@@ -1,0 +1,138 @@
+<%- include('partials/header', { title: 'Admin - Boundless Moments' }) %>
+  <!-- Main Content -->
+  <main class="px-6 py-20 bg-black bg-opacity-50">
+    <h2 class="text-white text-4xl font-semibold text-center mb-8">Admin Panel</h2>
+
+    <!-- Section: Manage Portfolio -->
+    <section class="mb-12 bg-white p-6 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-bold mb-4">Manage Portfolio</h3>
+      <form action="/admin/portfolio/add" method="POST" enctype="multipart/form-data">
+        <label for="title" class="block font-semibold mb-2">Title:</label>
+        <input type="text" name="title" required class="px-4 py-2 w-full border border-gray-300 rounded-md mb-4">
+
+        <label for="description" class="block font-semibold mb-2">Description:</label>
+        <textarea name="description" required class="px-4 py-2 w-full border border-gray-300 rounded-md mb-4"></textarea>
+
+        <label for="image" class="block font-semibold mb-2">Choose Image:</label>
+        <input type="file" name="image" accept="image/*" required class="mb-4">
+
+        <button type="submit" class="bg-yellow-500 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-600 transition w-full">Add Portfolio Item</button>
+      </form>
+
+      <h3 class="text-2xl font-bold mt-8 mb-4">Portfolio Items</h3>
+      <ul>
+        <% portfolioItems.forEach(item => { %>
+          <li class="mb-4">
+            <h4 class="text-xl font-bold"><%= item.title %></h4>
+            <img src="<%= item.imagePath %>" alt="<%= item.title %>" width="150" class="rounded-lg mb-2">
+            <p><%= item.description %></p>
+            <form action="/admin/portfolio/delete" method="POST" style="display:inline;">
+              <input type="hidden" name="id" value="<%= item.id %>">
+              <button type="submit" onclick="return confirm('Are you sure you want to delete this portfolio item?')" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition">Delete</button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+
+    <!-- Section: Manage Gallery -->
+    <section class="mb-12 bg-white p-6 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-bold mb-4">Upload Image to Gallery</h3>
+      <form action="/admin/gallery/add" method="POST" enctype="multipart/form-data">
+        <label for="image" class="block font-semibold mb-2">Choose Image:</label>
+        <input type="file" name="image" accept="image/*" required class="mb-4">
+
+        <label for="caption" class="block font-semibold mb-2">Image Caption:</label>
+        <input type="text" name="caption" required class="px-4 py-2 w-full border border-gray-300 rounded-md mb-4">
+
+        <button type="submit" class="bg-yellow-500 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-600 transition w-full">Upload Image</button>
+      </form>
+
+      <h3 class="text-2xl font-bold mt-8 mb-4">Gallery Images</h3>
+      <ul>
+        <% galleryImages.forEach(image => { %>
+          <li class="mb-4">
+            <img src="<%= image.imagePath %>" alt="<%= image.caption %>" width="150" class="rounded-lg mb-2">
+            <p><%= image.caption %></p>
+            <form action="/admin/gallery/delete/<%= image.id %>" method="POST" style="display:inline;">
+              <button type="submit" onclick="return confirm('Are you sure you want to delete this gallery image?')" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition">Delete</button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+
+    <!-- Section: Manage Experience -->
+    <section class="mb-12 bg-white p-6 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-bold mb-4">Manage Experience</h3>
+      <form action="/admin/experience/add" method="POST">
+        <label for="title" class="block font-semibold mb-2">Title:</label>
+        <input type="text" name="title" required class="px-4 py-2 w-full border border-gray-300 rounded-md mb-4">
+
+        <label for="description" class="block font-semibold mb-2">Description:</label>
+        <textarea name="description" required class="px-4 py-2 w-full border border-gray-300 rounded-md mb-4"></textarea>
+
+        <label for="skills" class="block font-semibold mb-2">Skills:</label>
+        <input type="text" name="skills" required class="px-4 py-2 w-full border border-gray-300 rounded-md mb-4">
+
+        <label for="awards" class="block font-semibold mb-2">Awards:</label>
+        <input type="text" name="awards" required class="px-4 py-2 w-full border border-gray-300 rounded-md mb-4">
+
+        <button type="submit" class="bg-yellow-500 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-600 transition w-full">Add Experience</button>
+      </form>
+
+      <h3 class="text-2xl font-bold mt-8 mb-4">Experience Items</h3>
+      <ul>
+        <% experienceItems.forEach(item => { %>
+          <li class="mb-4">
+            <h4 class="text-xl font-bold"><%= item.title %></h4>
+            <p><%= item.description %></p>
+            <h5 class="font-semibold mt-2">Skills:</h5>
+            <ul>
+              <% item.skills.forEach(skill => { %>
+                <li><%= skill %></li>
+              <% }) %>
+            </ul>
+            <h5 class="font-semibold mt-2">Awards:</h5>
+            <ul>
+              <% item.awards.forEach(award => { %>
+                <li><%= award %></li>
+              <% }) %>
+            </ul>
+            <form action="/admin/experience/delete" method="POST" style="display:inline;">
+              <input type="hidden" name="id" value="<%= item.id %>">
+              <button type="submit" onclick="return confirm('Are you sure you want to delete this experience item?')" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition">Delete</button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+
+    <!-- Section: View Messages -->
+    <section class="bg-white p-6 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-bold mb-4">Messages</h3>
+      <% if (messages.length > 0) { %>
+        <ul>
+          <% messages.forEach(msg => { %>
+            <li class="mb-4">
+              <strong>Name:</strong> <%= msg.name %> (<%= msg.email %>)
+              <p><%= msg.message %></p>
+              <form action="/admin/messages/delete/<%= msg.id %>" method="POST" style="display:inline;">
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this message?')" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition">Delete</button>
+              </form>
+            </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <p>No messages found.</p>
+      <% } %>
+    </section>
+
+    <!-- Logout Section -->
+    <form action="/admin/logout" method="POST" class="mt-6">
+      <button type="submit" class="bg-yellow-500 text-black px-6 py-3 rounded-md font-semibold hover:bg-yellow-600 transition w-full">Logout</button>
+    </form>
+
+  </main>
+
+  <%- include('partials/footer') %>

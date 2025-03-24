@@ -1,0 +1,28 @@
+<%- include('partials/header', { title: 'Portfolio - Boundless Moments' }) %>
+
+<!-- Main Content: Portfolio -->
+<main class="bg-cover bg-center bg-no-repeat py-20" 
+      
+  <div class="bg-black bg-opacity-60 min-h-screen py-20 px-6">
+    <div class="max-w-7xl mx-auto text-center text-white">
+      <h1 class="text-5xl font-bold mb-6">Our Portfolio</h1>
+      <h2 class="text-lg mb-8">Explore the artistry of captured moments.</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <% portfolioItems.forEach(function(item) { %>
+          <div class="bg-white rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300">
+            <img src="<%= item.imagepath %>" alt="<%= item.title %>" 
+                 class="rounded-t-lg w-full h-56 object-cover transition-transform duration-500 hover:scale-105">
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-2"><%= item.title %></h3>
+              <p class="text-gray-600 mb-4"><%= item.description %></p>
+              <a href="#" class="text-yellow-500 font-semibold hover:text-yellow-600 transition">View More</a>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

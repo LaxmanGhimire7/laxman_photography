@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/styles.css"> <!-- Ensure Tailwind is included -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-cover bg-center bg-fixed" 
+      style="background-image: url('https://images.unsplash.com/photo-1515519128511-cbd81859fa91?q=80&w=3388&auto=format&fit=crop&ixlib=rb-4.0.3');">
+
+  <!-- Overlay -->
+  <div class="bg-black bg-opacity-60 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-black bg-opacity-60 text-white py-4 px-6 z-50">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2">
+          <h1 class="text-2xl md:text-3xl font-bold">Boundless Moments</h1>
+        </a>
+
+        <!-- Navigation -->
+        <nav class="space-x-6 text-lg">
+          <a href="/" class="hover:text-yellow-500 transition">Home</a>
+          
+          <a href="/portfolio" class="hover:text-yellow-500 transition">Portfolio</a>
+          <a href="/gallery" class="hover:text-yellow-500 transition">Gallery</a>
+          <a href="/experience" class="hover:text-yellow-500 transition">Experience & Skills</a>
+          <a href="/contact" class="hover:text-yellow-500 transition">Contact</a>
+          <a href="/about" class="hover:text-yellow-500 transition">About</a>
+          <a href="/admin" class="bg-yellow-500 text-black px-4 py-2 rounded-md hover:bg-yellow-600 transition">Admin Login</a>
+        </nav>
+      </div>
+    </header>
